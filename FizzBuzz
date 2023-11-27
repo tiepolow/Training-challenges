@@ -1,0 +1,69 @@
+/* challenge:
+Write a program that returns the numbers from N to M both inclusive. But for multiples of three give "Fizz" instead of the number and for the multiples of five give "Buzz". For numbers which are multiples of both three and five, give "FizzBuzz".
+
+INPUT
+int    N
+Int    M
+
+OUTPUT
+string    sequence
+^^ the resulting sequence using commas as separators between elements
+
+EXAMPLE
+Input
+1,5
+Output
+"1,2,Fizz,4,Buzz"
+*/
+
+public class Solution {
+
+    public static String run(int N, int M) {
+        StringBuilder sequence = new StringBuilder();
+
+        for (int i = N; i <= M; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                sequence.append("FizzBuzz");
+            } else if (i % 3 == 0) {
+                sequence.append("Fizz");
+            } else if (i % 5 == 0) {
+                sequence.append("Buzz");
+            } else {
+                sequence.append(i);
+            }
+
+            if (i < M) {
+                sequence.append(",");
+            }
+        }
+
+        return sequence.toString();
+    }
+}
+
+/* test
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import org.junit.Assert;
+import org.junit.Test;
+
+public class Solution_Test  {
+    //
+    // First Example
+    //
+    @Test
+    public void exampleTestCase() {
+        Assert.assertEquals("this is an example", "this is an example");
+    }
+    //
+    // Second Example
+    //
+    //@Test
+    //public void testRun() {
+    //  Solution s = new Solution();
+    //  Assert.assertEquals("expected_output", s.run(parameters));
+    //}
+}
+
+*/
